@@ -1,0 +1,58 @@
+23:20:24 **** Incremental Build of configuration Debug for project PROJECT ****
+make all 
+Building file: ../Ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Ultrasonic.d" -MT"Ultrasonic.o" -c -o "Ultrasonic.o" "../Ultrasonic.c"
+In file included from ../Ultrasonic.c:18:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Ultrasonic.c
+ 
+Building file: ../buzzer.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"buzzer.d" -MT"buzzer.o" -c -o "buzzer.o" "../buzzer.c"
+Finished building: ../buzzer.c
+ 
+Building file: ../gpio.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"gpio.d" -MT"gpio.o" -c -o "gpio.o" "../gpio.c"
+Finished building: ../gpio.c
+ 
+Building file: ../icu.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"icu.d" -MT"icu.o" -c -o "icu.o" "../icu.c"
+../icu.c: In function 'ICU_setCallBack':
+../icu.c:83: warning: function return types not compatible due to 'volatile'
+Finished building: ../icu.c
+ 
+Building file: ../leds.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"leds.d" -MT"leds.o" -c -o "leds.o" "../leds.c"
+Finished building: ../leds.c
+ 
+Building target: PROJECT.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,PROJECT.map -mmcu=atmega16 -o "PROJECT.elf"  ./Ultrasonic.o ./buzzer.o ./gpio.o ./icu.o ./lcd.o ./leds.o ./miniproject4.o   
+Finished building target: PROJECT.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S PROJECT.elf  >"PROJECT.lss"
+Finished building: PROJECT.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 PROJECT.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:   12900 bytes (78.7% Full)
+(.text + .data + .bootloader)
+
+Data:        287 bytes (28.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:20:25 Build Finished. 0 errors, 2 warnings. (took 963ms)
+

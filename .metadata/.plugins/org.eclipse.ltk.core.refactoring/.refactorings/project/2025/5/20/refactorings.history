@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;project/miniproject4.c&apos; to &apos;project.c&apos;" description="Rename resource &apos;miniproject4.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="miniproject4.c" name="project.c" stamp="1747419712039" updateReferences="true"/>
+</session>

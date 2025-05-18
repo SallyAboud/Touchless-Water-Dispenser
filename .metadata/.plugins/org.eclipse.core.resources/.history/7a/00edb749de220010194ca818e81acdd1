@@ -1,0 +1,171 @@
+///*
+// * miniproject4.c
+// *
+// *  Created on: Oct 11, 2024
+// *      Author: SoO
+// */
+//
+//#include"Ultrasonic.h"
+//#include"lcd.h"
+//#include"buzzer.h"
+////#include"relay.h"
+//#include<util/delay.h>
+//int main(void){
+//
+//	Ultrasonic_init();/*initialize the ultrasonic*/
+//	BUZZER_init();/*initialize the buzzer*/
+////	RELAY_init();/*initialize the relay*/
+//	LCD_init();/*initialize the LCD*/
+//
+//	uint16 distance=Ultrasonic_readDistance();
+//
+//	while(1){
+//		/*display the distance in cm*/
+//		LCD_displayStringRowColumn(0,0,"Distance=");
+//		LCD_displayStringRowColumn(0,12,"cm");
+//		distance=Ultrasonic_readDistance();
+//
+//		/*move cursor to first row and then display the distance*/
+//		LCD_moveCursor(0,9);
+//		if(distance>=100){
+//
+//			LCD_intgerToString(distance);
+//
+//		}
+//		else{
+//
+//			LCD_intgerToString(distance);
+//			/* In case the digital value is two or one digits print space in the next digit place */
+//			LCD_displayCharacter(' ');
+//
+//		}
+//		/*if the distance is less than 5cm all leds and buzzer are flashing and the LCD displays stop*/
+//		if(distance<=5){
+//			LCD_displayStringRowColumn(1,0,"Water is pouring");
+////			RELAY_on();
+//			BUZZER_on();
+//			_delay_ms(250);
+//			BUZZER_off();
+//			_delay_ms(250);
+//
+//
+//		}
+//
+//		else{
+//			LCD_displayStringRowColumn(1,6,"    ");
+////			RELAY_off();
+//		}
+//
+//
+//	}
+//}
+/*
+ * miniproject4.c
+ *
+ *  Created on: Oct 11, 2024
+ *      Author: SoO
+ */
+
+#include"Ultrasonic.h"
+#include"lcd.h"
+#include"buzzer.h"
+#include<util/delay.h>
+int main(void){
+
+	Ultrasonic_init();/*initialize the ultrasonic*/
+
+	BUZZER_init();/*initialize the buzzer*/
+	LCD_init();/*initialize the LCD*/
+
+	uint16 distance=Ultrasonic_readDistance();
+
+	while(1){
+		/*display the distance in cm*/
+		LCD_displayStringRowColumn(0,0,"Distance=");
+		LCD_displayStringRowColumn(0,12,"cm");
+		distance=Ultrasonic_readDistance();
+
+		/*move cursor to first row and then display the distance*/
+		LCD_moveCursor(0,9);
+		if(distance>=100){
+
+			LCD_intgerToString(distance);
+
+		}
+		else{
+
+			LCD_intgerToString(distance);
+			/* In case the digital value is two or one digits print space in the next digit place */
+			LCD_displayCharacter(' ');
+
+		}
+		/*if the distance is less than 5cm all leds and buzzer are flashing and the LCD displays stop*/
+		if(distance<=5){
+			LCD_displayStringRowColumn(1,6,"STOP");
+
+//			LED_on(RED_LED);
+//			LED_on(GREEN_LED);
+//			LED_on(BLUE_LED);
+			BUZZER_on();
+			_delay_ms(250);
+
+
+//			LED_off(RED_LED);
+//			LED_off(GREEN_LED);
+//			LED_off(BLUE_LED);
+			BUZZER_off();
+			_delay_ms(250);
+
+
+		}
+
+		else{
+			LCD_displayStringRowColumn(1,6,"    ");
+
+		/*if the distance is less than 10cm and more than 5cm all leds are on and buzzer is off*/
+			if(distance<=10){
+
+//					LED_on(RED_LED);
+//					LED_on(GREEN_LED);
+//					LED_on(BLUE_LED);
+					BUZZER_off();
+
+				}
+
+			/*if the distance is less than 15cm and more than 10cm only red and green leds are on
+			 *and the buzzer and blue led are off*/
+			else if(distance<=15){
+
+//				LED_on(RED_LED);
+//				LED_on(GREEN_LED);
+//				LED_off(BLUE_LED);
+				BUZZER_off();
+
+			}
+
+			/*if the distance is less than 20cm and more than 15cm only red led is on
+			 *and the buzzer and blue  and green leds are off*/
+			else if(distance<=20){
+
+//				LED_on(RED_LED);
+//				LED_off(GREEN_LED);
+//				LED_off(BLUE_LED);
+				BUZZER_off();
+
+			}
+
+			/*if the distance is more than 20cm all leds and buzzer are off and the LCD displays stop*/
+			else{
+//
+//				LED_off(RED_LED);
+//				LED_off(GREEN_LED);
+//				LED_off(BLUE_LED);
+				BUZZER_off();
+
+			}
+		}
+
+
+	}
+}
+

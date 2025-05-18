@@ -1,0 +1,21 @@
+/*
+ * trial.c
+ *
+ *  Created on: Apr 30, 2025
+ *      Author: sally
+ */
+
+
+#include<avr/io.h>
+#include<util/delay.h>
+
+int main(){
+	DDRC|=(1<<4);
+	while(1){
+		PORTC&=~(1<<4);
+//		_delay_ms(500);
+//		PORTC&=~(1<<0);
+//		_delay_ms(500);
+
+	}
+}

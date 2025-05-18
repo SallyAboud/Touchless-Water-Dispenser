@@ -1,0 +1,20 @@
+15:36:20 **** Incremental Build of configuration Debug for project trial ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 trial.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    3318 bytes (20.3% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+15:36:20 Build Finished. 0 errors, 0 warnings. (took 178ms)
+

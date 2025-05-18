@@ -1,0 +1,26 @@
+#include <avr/io.h>
+#include <util/delay.h>
+
+#define FLAME_SENSOR_PIN  PD0
+#define BUZZER_PIN        PD1
+
+int main(void) {
+    // Set flame sensor pin as input
+    DDRD &= ~(1 << FLAME_SENSOR_PIN);
+
+    // Set buzzer pin as output
+    DDRD |= (1 << BUZZER_PIN);
+
+    while (1) {
+        // If flame detected (sensor gives LOW)
+        if ((PIND & (1 << FLAME_SENSOR_PIN)) == 0) {
+            PORTD |= (1 << BUZZER_PIN);  // Turn on buzzer
+        } else {
+            PORTD &= ~(1 << BUZZER_PIN); // Turn off buzzer
+        }
+
+        _delay_ms(100);
+    }
+
+    return 0;
+}
